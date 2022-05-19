@@ -13,12 +13,10 @@ server.set('views', path.join(__dirname, 'views'));
 server.engine('mustache', mustache());
 
 server.use(express.static(path.join(__dirname, '../public')))
-
-// rotas
 server.use(mainRoutes)
 
 server.use((req, res)=>{
-    res.send('página não encontrada!')
+    res.render('pages/404')
 })
 
 server.listen(process.env.PORT)
